@@ -98,3 +98,26 @@ Click on the edit icon.
 * Name your Consul server, LoadBalancer server, and the two backend servers for easy identification
 
 ![pic](img/img3.png)
+
+
+## Allow Required Ports In The Security Group
+To ensure the proper functioning of the Consul service, please open the following ports in your security group and apply the same security group to all instances.
+
+Consul Servers
+S/N	Port Name	Protocol	Default Port
+1	DNS	TCP and UDP	8600
+2	HTTP API	TCP	8500
+3	HTTPS API	TCP	8501
+4	gRPC	TCP	8502
+5	gRPC TLS	TCP	8503
+6	Server RPC	TCP	8300
+7	LAN Serf	TCP and UDP	8301
+8	WAN Serf	TCP and UDP	8302
+
+* Select the checkbox① next to your instance, click on Security②, and then click on the security group ID③.
+
+![pic](img/img4.png)
+
+Click on Edit inbound rules.
+
+![pic](img)
