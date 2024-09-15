@@ -305,3 +305,29 @@ server {
    }
 }
 ~~~
+
+* Here's a breakdown of the configuration:
+
+1. Upstream Block
+~~~
+upstream backend {
+ {{- range service "backend" }} 
+  server {{ .Address }}:{{ .Port }}; 
+ {{- end }} 
+}
+~~~
+* upstream backend: This defines a group of backend servers that Nginx can load-balance requests across.
+* {{- range service "backend" }}: This is a * Consul-Template directive that iterates over all services registered with Consul under the name "backend".
+* server {{ .Address }}:{{ .Port }};: For each backend service, it adds an entry to the upstream block with the server's address and port.
+* {{- end }}: Ends the iteration block.
+
+2. Server Block
+~~~
+server {
+   listen 80;
+
+   location / {
+      proxy_pass http://backend;
+   }
+}
+~~~
