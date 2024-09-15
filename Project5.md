@@ -331,3 +331,34 @@ server {
    }
 }
 ~~~
+
+* server: Defines a virtual server that listens for incoming requests.
+* listen 80: Specifies that this server block will listen on port 80 (the default HTTP port).
+* location /: Defines a location block for all requests to the root URL (/).
+* proxy_pass http://backend: Forwards incoming requests to the upstream group named "backend" defined above. Nginx will use the addresses and ports listed in the upstream backend block to balance the requests.
+
+Note: This setup keeps Nginx's backend server list in sync with Consul's. It ensures that Nginx always routes traffic to the currently available backend servers.
+
+* Create a file named consul-template.hcl in the /etc/nginx/conf.d/ directory. This configuration file is used by consul-template to specify details about the Consul server IP and the destination path where the processed load-balancer.conf file will be saved.
+
+Use the following command to create and edit the file: sudo vi /etc/nginx/conf.d/consul-template.hcl.
+
+* Add the following content to the file, replacing <Consul Server IP> with your Consul server's IP address. This configuration specifies the Consul server details, the path to the template file, the destination for the rendered Nginx configuration, and the command to reload Nginx after updating the configuration.
+
+~~~
+consul {
+ address = "<Consul Server IP>:8500"
+
+ retry {
+   enabled  = true
+   attempts = 12
+   backoff  = "250ms"
+ }
+}
+template {
+ source      = "/etc/nginx/conf.d/load-balancer.conf.ctmpl"
+ destination = "/etc/nginx/conf.d/load-balancer.conf"
+ perms       = 0600
+ command = "service nginx reload"
+}
+~~~
