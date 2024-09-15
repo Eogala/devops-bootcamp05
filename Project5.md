@@ -81,3 +81,20 @@ S/N	Project Tasks
  Task 5: Setup Backend Servers
  Task 6: Setup Load-Balancer
  Task 7: Validate Service Discovery Setup
+
+# Documentation
+Please reference Project1 for guidance on spinning up an Ubuntu server.
+
+Rename your EC2 instances to prevent any confusion during your project.
+
+Click on the edit icon.
+
+![pic](img/img1.png)
+
+* Name your server and click the checkmark icon
+
+![pic](img/img2.png)
+
+* Name your Consul server, LoadBalancer server, and the two backend servers for easy identification
+
+![pic](img/img3.png)
