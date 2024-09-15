@@ -362,3 +362,37 @@ template {
  command = "service nginx reload"
 }
 ~~~
+
+![pic](img)
+
+* Delete the default server configuration to disable it by running the following command: sudo rm /etc/nginx/sites-enabled/default.
+
+
+![pic](img)
+
+* The default server configuration file should be deleted to avoid inconsistencies with the server's settings.
+
+* Restart Nginx to apply the changes by running the following command: sudo systemctl restart nginx.
+
+* Once configurations are complete, start the Consul Template agent using the following command. It continuously monitors Consul for changes.
+
+~~~
+sudo nohup consul-template -config=/etc/nginx/conf.d/consul-template.hcl &
+~~~
+
+![pic](img)
+
+Upon completion, a load-balancer.conf file will be created with backend server information populated from the Consul service registry.
+
+
+![pic](img)
+
+
+* Now, if you access the load balancer IP in your web browser, it will display the custom HTML content from one of the backend servers. When you refresh the page, the load balancer will route your request to the other backend server, displaying its custom HTML content.
+
+![pic](img)
+
+![pic](img)
+
+This behavior occurs because the load balancer uses a round-robin algorithm by default, distributing incoming requests evenly across all available backend servers.
+
