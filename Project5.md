@@ -127,10 +127,10 @@ Click on Edit inbound rules.
 * Click on the Type field and choose Custom UDP from the dropdown menu.
 * Verify that all the necessary ports are open.The processare repeated until you've opened up all necessary ports
 
-![pic](img)
+![pic](img/img5.png)
 
-![pic](img)
+![pic](img/img6.png)
 
-![pic](img)
+![pic](img/img7.png)
 
 * Click on Save rules to apply the updated security group settings
