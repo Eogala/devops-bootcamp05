@@ -51,3 +51,33 @@ Implementations
 
 ## Consul
 Consul is an open-source tool by HashiCorp for service discovery, configuration management, and network automation in distributed systems. It allows services to register and discover each other, performs health checks, and provides a distributed key/value store for configuration data. Consul supports secure service-to-service communication, multi-datacenter setups, and advanced service mesh capabilities, making it ideal for managing microservices and dynamic cloud environments.
+
+S/N	Project Tasks
+1	Deploy 4 Ubuntu Server
+2	Allow required ports in the security group
+3	Set up architecture
+4	Setup Consul Server
+5	Setup Backend Servers
+6	Setup Load-Balancer
+7	Validate Service Discovery Setup
+
+## Key Concepts Covered
+* AWS (EC2 and Route 53)
+* Linux(Ubuntu)
+* Nginx
+* Consul
+* Environment Setup
+* Service Registration with Consul
+*Health Checks and Failover
+* Load Balancing
+* Monitoring and Logging
+* Testing and Validation
+
+## Checklist
+ Task 1: Deploy 4 Ubuntu Server
+ Task 2: Allow required ports in the security group
+ Task 3: Set up architecture
+ Task 4: Setup Consul Server
+ Task 5: Setup Backend Servers
+ Task 6: Setup Load-Balancer
+ Task 7: Validate Service Discovery Setup
