@@ -143,3 +143,26 @@ For the purpose of this project, security measures have been intentionally relax
 SSH into the consul server and run sudo apt update to refresh the package cache.
 
 Visit the consul downloads page to copy the installation command.
+
+![pic](img/img8.png)
+
+Or execute the following commands to install Consul.
+~~~
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install consul
+~~~
+![pic](img/img9.png)
+
+* Verify that Consul is installed properly by running the following command: consul --version.
+
+![pic](img)
+
+
+![pic](img)
+
+* Replace the default Consul configuration file config.hcl located in /etc/consul.d with your custom consul.hcl file.
+
+* Rename the default file and create a new one by running the following commands:
+
