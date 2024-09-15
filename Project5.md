@@ -253,3 +253,55 @@ Here's an explanation of the Consul agent configuration settings:
 
 
 ![pic](img/img22.png)
+
+
+# Setup Load-Balancer
+Next, set up the load balancer to automatically update its backend server information based on the service registry maintained by Consul. To retrieve the backend server details, we will use the consul-template binary. This tool interacts with the Consul server via API calls to fetch the backend server information. It then uses a template to substitute values and generate the loadbalancer.conf file, which is utilized by Nginx.
+
+* Log in to the load-balancer server. Update the package information and install unzip with the following commands:
+
+~~~
+sudo apt-get update -y
+sudo apt-get install unzip -y
+~~~
+
+![pic](img)
+
+
+* Install Nginx using the following command: sudo apt install nginx -y.
+
+![pic](img)
+
+* Download the consul-template binary using the following command:
+
+~~~
+
+sudo curl -L  https://releases.hashicorp.com/consul-template/0.30.0/consul-template_0.30.0_linux_amd64.zip -o /opt/consul-template.zip
+
+sudo unzip /opt/consul-template.zip -d  /usr/local/bin/
+~~~
+
+![pic](img)
+
+* To verify the installation of consul-template, check its version with the following command: consul-template --version.
+
+![pic](img)
+
+* Create and edit a file named load-balancer.conf.ctmpl in the /etc/nginx/conf.d directory, using the following command: sudo vi /etc/nginx/conf.d/load-balancer.conf.ctmpl.
+* Paste the following content into the file:
+
+~~~
+upstream backend {
+ {{- range service "backend" }} 
+  server {{ .Address }}:{{ .Port }}; 
+ {{- end }} 
+}
+
+server {
+   listen 80;
+
+   location / {
+      proxy_pass http://backend;
+   }
+}
+~~~
