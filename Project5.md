@@ -134,3 +134,12 @@ Click on Edit inbound rules.
 ![pic](img/img7.png)
 
 * Click on Save rules to apply the updated security group settings
+
+* Note
+
+For the purpose of this project, security measures have been intentionally relaxed by opening SSH, HTTP, HTTPS, and Consul ports to all traffic (0.0.0.0) for rapid development and testing. This configuration is highly insecure and should never be used in production environments. In a production setting, it is crucial to: Create separate security groups for each type of instance (consul server, backend server, load balancer), strictly limit inbound and outbound traffic to necessary ports and IP addresses, and implement additional security measures like network ACLs, IAM roles, and encryption. By following these guidelines, you can significantly enhance the security of your infrastructure and protect your systems from unauthorized access.
+
+# Setup Consul Server
+SSH into the consul server and run sudo apt update to refresh the package cache.
+
+Visit the consul downloads page to copy the installation command.
