@@ -231,4 +231,25 @@ Here's an explanation of the Consul agent configuration settings:
 
 ![pic](img/img15.png)
 
-![pic](img)
+![pic](img/img14.png)
+
+* Once all configurations are complete, start the Consul agent with the following command: sudo nohup consul agent -config-dir /etc/consul.d/ &.
+
+![pic](img/img16.png)
+
+![pic](img/img17.png)
+
+* To verify if everything is working correctly, visit your Consul UI. If you see the backend listed in the UI as depicted below, it indicates that the backend has successfully registered itself with Consul.
+
+![pic](img/img18.png)
+
+
+![pic](img/img19.png)
+
+
+
+![pic](img/img20.png)
+
+
+
+![pic](img/img22.png)
