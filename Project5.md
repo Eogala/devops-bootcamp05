@@ -166,3 +166,22 @@ sudo apt update && sudo apt install consul
 
 * Rename the default file and create a new one by running the following commands:
 
+~~~
+sudo mv /etc/consul.d/consul.hcl /etc/consul.d/consul.hcl.back
+sudo vi /etc/consul.d/consul.hcl
+~~~
+
+* Add the following contents to the file. Replace <YOUR_ENCRYPTED_KEY>① with your encryption key. Also, replace 34.201.77.72② with your Consul server's IP address.
+
+~~~
+"server" = false
+"datacenter" = "dc1"
+"data_dir" = "/var/consul"
+"encrypt" = "<YOUR_ENCRYPTED_KEY>"
+"log_level" = "INFO"
+"enable_script_checks" = true
+"enable_syslog" = true
+"leave_on_terminate" = true
+"start_join" = ["34.201.77.72"]
+~~~
+
