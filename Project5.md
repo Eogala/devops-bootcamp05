@@ -155,12 +155,14 @@ sudo apt update && sudo apt install consul
 ~~~
 ![pic](img/img9.png)
 
+![pic](img/img10.png)
+
 * Verify that Consul is installed properly by running the following command: consul --version.
 
-![pic](img)
+![pic](img/img11.png)
 
 
-![pic](img)
+![pic](img/img12.png)
 
 * Replace the default Consul configuration file config.hcl located in /etc/consul.d with your custom consul.hcl file.
 
