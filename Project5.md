@@ -121,3 +121,16 @@ S/N	Port Name	Protocol	Default Port
 Click on Edit inbound rules.
 
 ![pic](img)
+
+* Click on Add rule,Enter the Port range
+* Choose the appropriate CIDR block.
+* Click on the Type field and choose Custom UDP from the dropdown menu.
+* Verify that all the necessary ports are open.The processare repeated until you've opened up all necessary ports
+
+![pic](img)
+
+![pic](img)
+
+![pic](img)
+
+* Click on Save rules to apply the updated security group settings
