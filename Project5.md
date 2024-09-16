@@ -396,3 +396,25 @@ Upon completion, a load-balancer.conf file will be created with backend server i
 
 This behavior occurs because the load balancer uses a round-robin algorithm by default, distributing incoming requests evenly across all available backend servers.
 
+# Service Discovery Test
+* Now that everything is set up and running, you can test the configuration by observing what happens when you stop one of your backend servers.
+
+![pic](img)
+
+* Stop one of the backend servers. The Consul server will monitor the health of each registered service. Once a backend server is stopped, Consul will detect the server's unavailability and mark it as unhealthy. The health check for that server will fail, and it will be removed from the load balancer's active pool of servers.
+
+
+![pic](img)
+
+As a result, the load balancer will only direct traffic to the remaining healthy backend servers. This ensures that your application continues to run smoothly without any disruption to users, demonstrating the effectiveness of your service discovery and health check configuration with Consul and Nginx.
+
+
+![pic](img)
+
+
+
+Service Check: These checks are specific to the services running on the nodes (in this case, Nginx). When you stopped Nginx, the service check that monitors the health of Nginx on that particular node would fail, leading to the "all service checks failed" error.
+
+Node checks: These checks monitor the overall health of the node itself, which includes the underlying operating system and possibly other metrics (like CPU, memory, and disk usage). Since stopping Nginx does not necessarily mean the node is unhealthy (the node could still be up and running, responding to pings, etc.), the node checks would still pass.
+
+# The End Of Project 5
