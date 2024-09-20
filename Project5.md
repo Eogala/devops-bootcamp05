@@ -382,7 +382,7 @@ template {
 sudo nohup consul-template -config=/etc/nginx/conf.d/consul-template.hcl &
 ~~~
 
-![pic](img)
+![pic](img/33.png)
 
 Upon completion, a load-balancer.conf file will be created with backend server information populated from the Consul service registry.
 
