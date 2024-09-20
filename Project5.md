@@ -306,6 +306,8 @@ server {
 }
 ~~~
 
+![pic](img/29.png)
+
 * Here's a breakdown of the configuration:
 
 1. Upstream Block
@@ -363,12 +365,12 @@ template {
 }
 ~~~
 
-![pic](img)
+![pic](img/30.png)
 
 * Delete the default server configuration to disable it by running the following command: sudo rm /etc/nginx/sites-enabled/default.
 
 
-![pic](img)
+![pic](img/31.png)
 
 * The default server configuration file should be deleted to avoid inconsistencies with the server's settings.
 
