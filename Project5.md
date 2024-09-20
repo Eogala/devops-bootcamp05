@@ -265,12 +265,12 @@ sudo apt-get update -y
 sudo apt-get install unzip -y
 ~~~
 
-![pic](img)
+![pic](img/23.png)
 
 
 * Install Nginx using the following command: sudo apt install nginx -y.
 
-![pic](img)
+![pic](img/24.png)
 
 * Download the consul-template binary using the following command:
 
@@ -281,11 +281,11 @@ sudo curl -L  https://releases.hashicorp.com/consul-template/0.30.0/consul-templ
 sudo unzip /opt/consul-template.zip -d  /usr/local/bin/
 ~~~
 
-![pic](img)
+![pic](img/26.png)
 
 * To verify the installation of consul-template, check its version with the following command: consul-template --version.
 
-![pic](img)
+![pic](img/28.png)
 
 * Create and edit a file named load-balancer.conf.ctmpl in the /etc/nginx/conf.d directory, using the following command: sudo vi /etc/nginx/conf.d/load-balancer.conf.ctmpl.
 * Paste the following content into the file:
