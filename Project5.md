@@ -225,7 +225,7 @@ Here's an explanation of the Consul agent configuration settings:
   }
 }
 ~~~
-![pic](img/img13.png)
+![pic](img/36.png)
 
 
 
