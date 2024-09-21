@@ -187,6 +187,10 @@ sudo vi /etc/consul.d/consul.hcl
 "start_join" = ["34.201.77.72"]
 ~~~
 
+
+![pic](img/35.png)
+
+
 Here's an explanation of the Consul agent configuration settings:
 
 1. server = false: Indicates that this node is not a Consul server, but a client (agent). A Consul server handles requests from other Consul agents, while a client node registers services and performs checks.
