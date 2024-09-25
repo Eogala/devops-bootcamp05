@@ -391,31 +391,29 @@ sudo nohup consul-template -config=/etc/nginx/conf.d/consul-template.hcl &
 Upon completion, a load-balancer.conf file will be created with backend server information populated from the Consul service registry.
 
 
-![pic](img)
+![pic](img/40.png)
 
 
 * Now, if you access the load balancer IP in your web browser, it will display the custom HTML content from one of the backend servers. When you refresh the page, the load balancer will route your request to the other backend server, displaying its custom HTML content.
 
-![pic](img)
+![pic](img/41.png)
 
-![pic](img)
+![pic](img/42.png)
 
 This behavior occurs because the load balancer uses a round-robin algorithm by default, distributing incoming requests evenly across all available backend servers.
 
 # Service Discovery Test
 * Now that everything is set up and running, you can test the configuration by observing what happens when you stop one of your backend servers.
 
-![pic](img)
+![pic](img/44.png)
 
 * Stop one of the backend servers. The Consul server will monitor the health of each registered service. Once a backend server is stopped, Consul will detect the server's unavailability and mark it as unhealthy. The health check for that server will fail, and it will be removed from the load balancer's active pool of servers.
 
 
-![pic](img)
-
 As a result, the load balancer will only direct traffic to the remaining healthy backend servers. This ensures that your application continues to run smoothly without any disruption to users, demonstrating the effectiveness of your service discovery and health check configuration with Consul and Nginx.
 
 
-![pic](img)
+![pic](img/45.png)
 
 
 
